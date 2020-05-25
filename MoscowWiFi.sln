@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoscowWiFi.WebService", "MoscowWiFi.WebService\MoscowWiFi.WebService.csproj", "{7EF7723A-1864-45E5-8FB2-0ACB78BEB4F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MoscowWiFi.WebService.Tests", "MoscowWiFi.WebService.Tests\MoscowWiFi.WebService.Tests.csproj", "{A4F699AB-83C8-4742-B52D-4BECDE2D1A1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{7EF7723A-1864-45E5-8FB2-0ACB78BEB4F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EF7723A-1864-45E5-8FB2-0ACB78BEB4F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EF7723A-1864-45E5-8FB2-0ACB78BEB4F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4F699AB-83C8-4742-B52D-4BECDE2D1A1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4F699AB-83C8-4742-B52D-4BECDE2D1A1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4F699AB-83C8-4742-B52D-4BECDE2D1A1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4F699AB-83C8-4742-B52D-4BECDE2D1A1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using MoscowWiFi.WebService.ApplicationServices.GetAccessPointListUseCase;
 using MoscowWiFi.WebService.DomainObjects;
+using MoscowWiFi.WebService.InfrastructureServices.Presenters;
 
 namespace MoscowWiFi.WebService.Controllers
 {
@@ -10,32 +13,31 @@ namespace MoscowWiFi.WebService.Controllers
     public class AccessPointsController : ControllerBase
     {
         private readonly ILogger<AccessPointsController> _logger;
+        private readonly IGetAccessPointListUseCase _getAccessPointListUseCase;
 
-        public AccessPointsController(ILogger<AccessPointsController> logger)
+        public AccessPointsController(ILogger<AccessPointsController> logger,
+            IGetAccessPointListUseCase getAccessPointListUseCase)
         {
             _logger = logger;
+            _getAccessPointListUseCase = getAccessPointListUseCase;
         }
 
         [HttpGet]
-        public IEnumerable<AccessPoint> GetAllAccessPoints()
+        public async Task<ActionResult> GetAllAccessPoints()
         {
-            return new List<AccessPoint>()
-            {
-                new AccessPoint()
-                {
-                    District = "123",
-                    Location = "123",
-                    Password = "123",
-                    Name = "123",
-                    AccessFlag = "asda",
-                    AdmArea = "asdasd",
-                    CoverageArea = 400,
-                    FunctionFlag = "asdasd",
-                    WiFiName = "asda",
-                    NumberOfAccessPoints = 2,
-                    Id = 123123123
-                }
-            };
+            var presenter = new AccessPointListPresenter();
+            await _getAccessPointListUseCase.Handle(GetAccessPointListUseCaseRequest.CreateAllAccessPointsRequest(),
+                presenter);
+            return presenter.ContentResult;
+        }
+
+        [HttpGet("{accesPointId}")]
+        public async Task<ActionResult> GetAccessPoint(long id)
+        {
+            var presenter = new AccessPointListPresenter();
+            await _getAccessPointListUseCase.Handle(GetAccessPointListUseCaseRequest.CreateAccessPointRequest(id),
+                presenter);
+            return presenter.ContentResult;
         }
     }
 }

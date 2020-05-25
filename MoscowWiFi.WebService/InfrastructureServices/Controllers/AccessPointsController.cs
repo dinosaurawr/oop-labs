@@ -17,7 +17,7 @@ namespace MoscowWiFi.WebService.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<AccessPoint> GetAccessPoint()
+        public IEnumerable<AccessPoint> GetAllAccessPoints()
         {
             return new List<AccessPoint>()
             {

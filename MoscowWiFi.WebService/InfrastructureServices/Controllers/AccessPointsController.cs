@@ -31,11 +31,11 @@ namespace MoscowWiFi.WebService.Controllers
             return presenter.ContentResult;
         }
 
-        [HttpGet("{accesPointId}")]
-        public async Task<ActionResult> GetAccessPoint(long id)
+        [HttpGet("{accessPointId}")]
+        public async Task<ActionResult> GetAccessPoint(long accessPointId)
         {
             var presenter = new AccessPointListPresenter();
-            await _getAccessPointListUseCase.Handle(GetAccessPointListUseCaseRequest.CreateAccessPointRequest(id),
+            await _getAccessPointListUseCase.Handle(GetAccessPointListUseCaseRequest.CreateAccessPointRequest(accessPointId),
                 presenter);
             return presenter.ContentResult;
         }
